@@ -1,5 +1,6 @@
 package ar.edu.um.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class PersonaService implements IPersonaService {
 	@Transactional 
 	public Persona findPersonaByClave(Integer clave) {
 		return (Persona)personaDAO.findPersonaByClave(clave);
+	}
+
+	@Transactional 
+	public Persona findPersonaByPerID(BigDecimal Per_ID) {
+		return (Persona)personaDAO.findPersonaByPerID(Per_ID);
 	}
 
 

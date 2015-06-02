@@ -1,5 +1,7 @@
 package ar.edu.um.service;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +19,12 @@ public class CredencialService implements ICredencialService {
 	@Transactional 
 	public void persistCredencial(Credencial credencial) {
 		credencialDAO.persistCredencial(credencial);
+	}
+
+
+	@Transactional
+	public Credencial findCredencialByCreNumero(BigDecimal cre_numero) {
+		return credencialDAO.findCredencialByCreNumero(cre_numero);
 	}
 
 

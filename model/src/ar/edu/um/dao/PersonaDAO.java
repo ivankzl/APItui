@@ -1,16 +1,19 @@
 package ar.edu.um.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ar.edu.um.model.Credencial;
 import ar.edu.um.model.Persona;
 
 @Service("personaDAO")
-public class PersonaDAO {
+public class PersonaDAO implements IPersonaDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -37,6 +40,18 @@ public class PersonaDAO {
 	public Persona findPersonaByClave(Integer clave) {
 		Persona persona = (Persona)sessionFactory.getCurrentSession().get(Persona.class, clave);
 		return persona;
+	}
+
+
+	public Persona findPersonaByPerID(BigDecimal Per_ID) {
+		Query query = sessionFactory.getCurrentSession().createQuery("from Persona where Per_ID=:Per_ID ");
+		 query.setParameter("Per_ID", Per_ID);
+		 Persona persona = (Persona) query.uniqueResult();
+		 
+		 return persona;
+		 
+	
+	
 	}
 
 }
