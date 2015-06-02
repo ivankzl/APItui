@@ -1,6 +1,7 @@
 package ar.edu.um.model;
 
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -11,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "credencial")
-public class Credencial {
+public class Credencial implements Serializable{
 	@Id
 	@Column(name = "cre_doc_id", nullable = false)
 	private int cre_doc_id;

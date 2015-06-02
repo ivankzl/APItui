@@ -24,6 +24,7 @@ public class PersonaController {
   		 ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
   		 IPersonaService perService = (IPersonaService) context.getBean("personaService");
   		 Persona persona = new Persona();
+  		 persona.setPer_Apellido("KUZEL");
   		 
   	     return persona;
 
