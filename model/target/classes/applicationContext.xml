@@ -22,7 +22,6 @@
             <list>
                 <value>ar.edu.um.model.Persona</value>
                 <value>ar.edu.um.model.Credencial</value>
-                <value>ar.edu.um.model.Domicilio</value>
 
             </list>
         </property>
@@ -32,6 +31,7 @@
         <prop key="hibernate.show_sql">true</prop>
       </props>
     </property>
+    
   </bean>
   
   <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager" 

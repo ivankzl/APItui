@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import ar.edu.um.model.Credencial;
+import ar.edu.um.model.Domicilio;
 import ar.edu.um.model.Persona;
 import ar.edu.um.service.ICredencialService;
+import ar.edu.um.service.IDomicilioService;
 import ar.edu.um.service.IPersonaService;
 
 @RestController
@@ -36,8 +38,11 @@ public class PersonaController {
 		System.out.println("cre_per_id de credencial = " + credencial.getCre_per_id());
 		Persona persona = perService.findPersonaByPerID(credencial.getCre_per_id());
 		
+		IDomicilioService domService = (IDomicilioService) context.getBean("domicilioService");
+		Domicilio domicilio = domService.findDomicilioByPerID(persona.getPer_ID());
+		
 		Content content = new Content();
-		content.setLogin_id(persona.getPer_Nombre());
+		content.setLogin_id(domicilio.getDom_e_mail());
 		content.setName(persona.getPer_Nombre() + " " + persona.getPer_Apellido());
 		content.setPhoto("url-foto");
 		content.setRoles("r1");
