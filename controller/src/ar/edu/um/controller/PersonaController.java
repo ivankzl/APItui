@@ -44,7 +44,7 @@ public class PersonaController {
 		Content content = new Content();
 		content.setLogin_id(domicilio.getDom_e_mail());
 		content.setName(persona.getPer_Nombre() + " " + persona.getPer_Apellido());
-		content.setPhoto("url-foto");
+		content.setPhoto("http://um.edu.ar/cursos/resources/images/marca.png");
 		content.setRoles("r1");
 		
 		RespuestaJSON respuesta = new RespuestaJSON();
