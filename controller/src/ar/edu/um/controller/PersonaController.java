@@ -23,14 +23,11 @@ import ar.edu.um.service.IPersonaService;
 @RestController
 public class PersonaController {
 
-	/*
-	 * Trae una persona determinada
-	 * 
-	 * http://orion2.atica.um.es/serviciosTUI/welcome/5901000000000120
-	 * Probar con
-	 * 
-	 * http://localhost:8080/welcome/4517660104006712
-	 */
+	/** 
+	 *Este método recibe como parámetro el número de credencial de la persona, que se encuentra en la 
+	 *tarjeta de débito. Mientras esté en localhost, se puede probar con la siguiente credencial:
+	 *http://localhost:8080/welcome/4517660104006712
+	 **/
 	@RequestMapping(value = "/welcome/{cre_numero}", method = RequestMethod.GET)
 	public RespuestaJSON findCredencial(@PathVariable("cre_numero") BigDecimal cre_numero) {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -58,6 +55,9 @@ public class PersonaController {
 
 	}
 	
+	/** 
+	 *
+	 **/
 	@RequestMapping(value = "/get_user_info/{cre_numero}", method = RequestMethod.GET)
 	public RespuestaJSONUserInfo getUserInfo(@PathVariable("cre_numero") BigDecimal cre_numero){
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");

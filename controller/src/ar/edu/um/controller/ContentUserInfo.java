@@ -3,6 +3,7 @@ package ar.edu.um.controller;
 import java.math.BigDecimal;
 
 public class ContentUserInfo {
+	
 	private BigDecimal user_id;
 	private String email;
 	private String tlf;

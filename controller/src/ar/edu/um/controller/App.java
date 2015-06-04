@@ -22,11 +22,8 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerA
 public class App {
 	public static void main(String[] args) {
 		System.out.println("load context");
-	
 
-
-		        SpringApplication.run(App.class, args);
-		
+		        SpringApplication.run(App.class, args);	
 
 	}
 
