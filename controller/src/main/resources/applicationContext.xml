@@ -23,6 +23,8 @@
                 <value>ar.edu.um.model.Persona</value>
                 <value>ar.edu.um.model.Credencial</value>
                 <value>ar.edu.um.model.Domicilio</value>
+                <value>ar.edu.um.model.Aluleg</value>
+                <value>ar.edu.um.model.Facultad</value>
 
             </list>
         </property>

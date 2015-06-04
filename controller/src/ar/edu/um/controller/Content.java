@@ -6,6 +6,7 @@ public class Content {
 	private String roles;
 	private String photo;
 	private int new_user_id;
+	
 	public String getLogin_id() {
 		return login_id;
 	}
@@ -36,6 +37,7 @@ public class Content {
 	public void setNew_user_id(int new_user_id) {
 		this.new_user_id = new_user_id;
 	}
+	
 	@Override
 	public String toString() {
 		return "Content [login_id=" + login_id + ", name=" + name + ", roles="
