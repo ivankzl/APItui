@@ -69,15 +69,23 @@ public class PersonaController {
 	 * ▪ session_token: Token de sesión para el acceso a los métodos privados
 	 * 
 	 **/
-	@RequestMapping(value = "/login/{login_id}/{password}", method = RequestMethod.GET)
-	public RespuestaJSONLogin login(@PathVariable("login_id") String login_id, @PathVariable("password") String password){
-		RespuestaJSONLogin respuesta = validarLogin(login_id, password);
-		
-		return respuesta;
-	}
+	//@RequestMapping(value = "/login/{login_id}/{password}", method = RequestMethod.GET)
+	//public RespuestaJSONLogin login(@PathVariable("login_id") String login_id, @PathVariable("password") String password){
+	//	RespuestaJSONLogin respuesta;// = validarLogin(login_id, password);
+
+		//return respuesta;
+	//}
 	
 	
-	
+	/** 
+	 * Parámetros:
+	 * ▪ user_id (GET) Identificador del usuario para el acceso a servicios privados.
+	 * Url: https://<base_url>/get_user_info/user_id
+	 * Devuelve: Json con los siguientes atributos:
+	 * ▪ status: <status code>
+	 * ▪ content: Json con los atributos: user_id, email, tlf, name, surname, photo, admin_unit, relation, roles, status.
+	 * 
+	 **/
 	@RequestMapping(value = "/get_user_info/{cre_numero}", method = RequestMethod.GET)
 	public RespuestaJSONUserInfo getUserInfo(@PathVariable("cre_numero") BigDecimal cre_numero){
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -100,12 +108,9 @@ public class PersonaController {
 		//aluleg.getALe_Car_ID();
 		
 		IFacultadService facuService = (IFacultadService) context.getBean("facultadService");
-		Facultad facultad = facuService.findFacultadByID(aluleg.getALe_Car_ID());
-		
-		//content.setRlation ("alumno")
-		//content.setRoles("r1");
-		//STATUS ->ojo, no hay
-		//content.setstatus("inventado")
+		Facultad facultad = facuService.findFacultadByID(aluleg.getALe_Fac_ID());
+		System.out.println("aluleg = " + aluleg);
+		System.out.println("facultad = " + facultad);
 		
 		ContentUserInfo content = new ContentUserInfo();
 		content.setUser_id(persona.getPer_ID());

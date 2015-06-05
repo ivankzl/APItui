@@ -15,10 +15,21 @@ public class AlulegDAO implements IAlulegDAO{
 	private SessionFactory sessionFactory;
 	
 	public Aluleg findFacultadByPerID(BigDecimal ALe_Per_ID) {
-		 Query query = sessionFactory.getCurrentSession().createQuery("from Aluleg where ALe_Per_ID = :ALe_Per_ID ");
-		 query.setParameter("ALe_Per_ID", ALe_Per_ID);
-		 Aluleg aluleg = (Aluleg) query.uniqueResult();
+		
+		
+		Query query = sessionFactory.getCurrentSession().createQuery("from Aluleg where ALe_Per_ID = :ALe_Per_ID order by ALe_Fecha desc");
+		query.setParameter("ALe_Per_ID", ALe_Per_ID);
+		query.setMaxResults(1);
+		//Aluleg aluleg = (Aluleg) query.setFirstResult(1);
+		//Aluleg aluleg = (Aluleg) query.setMaxResults(1);
+		Aluleg aluleg = (Aluleg) query.uniqueResult();
 		 
-		 return aluleg;
+		if (aluleg == null){
+			throw new RuntimeException("No se encontró para la credencial: " + ALe_Per_ID);
+		}
+			
+		return aluleg;
+		
+		
 	}
 }

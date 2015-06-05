@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "persona")
+@Table(name = "aluleg")
 public class Aluleg implements Serializable{
 	@Id
 	@Column(name = "ALe_Per_ID", nullable = false)
