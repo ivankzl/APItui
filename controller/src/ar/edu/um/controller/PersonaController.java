@@ -24,6 +24,10 @@ import ar.edu.um.service.IPersonaService;
 public class PersonaController {
 
 	/** 
+	 * Url: http://<base_url>/welcome/user_id/
+	   Devuelve: Json con los siguientes atributos:
+       ▪ status: <status code>
+       ▪ content
 	 *Este método recibe como parámetro el número de credencial de la persona, que se encuentra en la 
 	 *tarjeta de débito. Mientras esté en localhost, se puede probar con la siguiente credencial:
 	 *http://localhost:8080/welcome/4517660104006712
@@ -56,8 +60,24 @@ public class PersonaController {
 	}
 	
 	/** 
-	 *
+	 * Parámetros:
+	 * ▪ login_id (GET) Identificador del usuario para el acceso a servicios privados.
+	 * ▪password (GET) Contraseña de la cuenta de usuario.
+	 * Url: https://<base_url>/login/login_id/password
+	 * Devuelve: Json con los siguientes atributos:
+	 * ▪ status: <status code>
+	 * ▪ session_token: Token de sesión para el acceso a los métodos privados
+	 * 
 	 **/
+	@RequestMapping(value = "/login/{login_id}/{password}", method = RequestMethod.GET)
+	public RespuestaJSONLogin login(@PathVariable("login_id") String login_id, @PathVariable("password") String password){
+		RespuestaJSONLogin respuesta = validarLogin(login_id, password);
+		
+		return respuesta;
+	}
+	
+	
+	
 	@RequestMapping(value = "/get_user_info/{cre_numero}", method = RequestMethod.GET)
 	public RespuestaJSONUserInfo getUserInfo(@PathVariable("cre_numero") BigDecimal cre_numero){
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
