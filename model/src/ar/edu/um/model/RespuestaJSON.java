@@ -1,4 +1,4 @@
-package ar.edu.um.controller;
+package ar.edu.um.model;
 
 public class RespuestaJSON {
 	

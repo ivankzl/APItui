@@ -1,4 +1,4 @@
-package ar.edu.um.controller;
+package ar.edu.um.model;
 
 import java.math.BigDecimal;
 

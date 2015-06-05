@@ -36,6 +36,9 @@ public class Aluleg implements Serializable{
 	private int ALe_Geo_ID;
 	@Column(name = "ALe_ID", nullable = true)
 	private int ALe_ID;
+	@Column(name = "ALe_Contrasenia", nullable = true)
+	private int ALe_Contrasenia;
+	
 	
 	public Aluleg(){
 		
@@ -127,6 +130,16 @@ public class Aluleg implements Serializable{
 
 	public void setALe_ID(int aLe_ID) {
 		ALe_ID = aLe_ID;
+	}
+	
+	
+
+	public int getALe_Contrasenia() {
+		return ALe_Contrasenia;
+	}
+
+	public void setALe_Contrasenia(int aLe_Contrasenia) {
+		ALe_Contrasenia = aLe_Contrasenia;
 	}
 
 	@Override

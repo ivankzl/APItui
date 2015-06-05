@@ -1,6 +1,7 @@
-package ar.edu.um.controller;
+package ar.edu.um.model;
 
 public class RespuestaJSONLogin {
+	
 	private ContentUserInfo status_code;
 	private String session_token;
 	
@@ -16,6 +17,7 @@ public class RespuestaJSONLogin {
 	public void setSession_token(String session_token) {
 		this.session_token = session_token;
 	}
+	
 	@Override
 	public String toString() {
 		return "RespuestaJSONUserInfo [status_code=" + status_code
