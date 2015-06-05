@@ -11,10 +11,10 @@ public interface IPersonaService {
 	List<Persona> list();
 	Persona findPersonaByClave(Integer clave);
 	Persona findPersonaByPerID(BigDecimal Per_ID);
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	//RespuestaJSON (String login_id, String password);
-=======
-	RespuestaJSONLogin validarLogin(String login_id, String password);
->>>>>>> 24e13898f82db340655c556306e611e54a046803
+//=======
+//	RespuestaJSONLogin validarLogin(String login_id, String password);
+//>>>>>>> 24e13898f82db340655c556306e611e54a046803
 
 }

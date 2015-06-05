@@ -32,6 +32,8 @@ public class Credencial implements Serializable{
 	private int cr_perdida;
 	@Column(name = "cre_id", nullable = false)
 	private int cre_id;
+	@Column(name = "cre_estado", nullable = false)
+	private String cre_estado;
 
 	
 	
@@ -110,14 +112,26 @@ public class Credencial implements Serializable{
 	}
 
 
+	public String getCre_estado() {
+		return cre_estado;
+	}
+
+
+	public void setCre_estado(String cre_estado) {
+		this.cre_estado = cre_estado;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Credencial [cre_doc_id=" + cre_doc_id + ", cre_per_id="
 				+ cre_per_id + ", cre_numero=" + cre_numero + ", cre_chip_id="
 				+ cre_chip_id + ", cre_alta=" + cre_alta + ", cr_perdida="
-				+ cr_perdida + ", cre_id=" + cre_id + "]";
+				+ cr_perdida + ", cre_id=" + cre_id + ", cre_estado="
+				+ cre_estado + "]";
 	}
 
+	
 
 	
 	

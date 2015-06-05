@@ -11,14 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ar.edu.um.model.Aluleg;
 import ar.edu.um.model.Content;
+import ar.edu.um.model.ContentTuiList;
 import ar.edu.um.model.ContentUserInfo;
 import ar.edu.um.model.Credencial;
 import ar.edu.um.model.Domicilio;
 import ar.edu.um.model.Facultad;
 import ar.edu.um.model.Persona;
 import ar.edu.um.model.RespuestaJSON;
-import ar.edu.um.model.RespuestaJSONLogin;
+import ar.edu.um.model.RespuestaJSONTuiList;
 import ar.edu.um.model.RespuestaJSONUserInfo;
+import ar.edu.um.model.TuiList;
 import ar.edu.um.service.IAlulegService;
 import ar.edu.um.service.ICredencialService;
 import ar.edu.um.service.IDomicilioService;
@@ -74,14 +76,15 @@ public class PersonaController {
 	 * ▪ session_token: Token de sesión para el acceso a los métodos privados
 	 * 
 	 **/
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	//@RequestMapping(value = "/login/{login_id}/{password}", method = RequestMethod.GET)
 	//public RespuestaJSONLogin login(@PathVariable("login_id") String login_id, @PathVariable("password") String password){
 	//	RespuestaJSONLogin respuesta;// = validarLogin(login_id, password);
 
 		//return respuesta;
 	//}
-=======
+//=======
+	/*
 	@RequestMapping(value = "/login/{login_id}/{password}", method = RequestMethod.GET)
 	public RespuestaJSONLogin login(@PathVariable("login_id") String login_id, @PathVariable("password") String password){
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -90,8 +93,8 @@ public class PersonaController {
 		
 		return respuesta;
 	}
-	
->>>>>>> 24e13898f82db340655c556306e611e54a046803
+	*/
+//>>>>>>> 24e13898f82db340655c556306e611e54a046803
 	
 	
 	/** 
@@ -150,6 +153,32 @@ public class PersonaController {
 		
 		return respuesta;
 		
+	}
+	
+	@RequestMapping(value = "/get_tui_list/{cre_numero}", method = RequestMethod.GET)
+	public RespuestaJSONTuiList getTuiList(@PathVariable("cre_numero") BigDecimal cre_numero){
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ICredencialService creService = (ICredencialService) context.getBean("credencialService");
+		
+		Credencial credencial = creService.findCredencialByCreNumero(cre_numero);
+		
+		ContentTuiList content = new ContentTuiList();
+		TuiList tuiList = new TuiList();
+		
+		tuiList.setUser_id(cre_numero);
+		tuiList.setStatus(credencial.getCre_estado());
+		//de aca en mas esta todo hardcodeado. Deberíamos agregar campos a  la BD
+		tuiList.setDelivery_date("2014/05/05");
+		tuiList.setDelivery_place_coordinates("30.0226560, -1.1744329");
+		tuiList.setDelivery_place_name("Tesorería");
+		tuiList.setExpiration_date("2017/05/05");
+		
+		content.setTuiList(tuiList);
+		
+		RespuestaJSONTuiList respuesta = new RespuestaJSONTuiList();
+		respuesta.setContent(content);
+		respuesta.setStatus("200");
+		return respuesta;
 	}
  
 }
