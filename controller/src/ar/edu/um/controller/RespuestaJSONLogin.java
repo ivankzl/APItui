@@ -1,25 +1,27 @@
 package ar.edu.um.controller;
 
 public class RespuestaJSONLogin {
-	private ContentUserInfo content;
-	private String status;
-	public ContentUserInfo getContent() {
-		return content;
+	private ContentUserInfo status_code;
+	private String session_token;
+	
+	public ContentUserInfo getStatus_code() {
+		return status_code;
 	}
-	public void setContent(ContentUserInfo content) {
-		this.content = content;
+	public void setStatus_code(ContentUserInfo status_code) {
+		this.status_code = status_code;
 	}
-	public String getStatus() {
-		return status;
+	public String getSession_token() {
+		return session_token;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setSession_token(String session_token) {
+		this.session_token = session_token;
 	}
 	@Override
 	public String toString() {
-		return "RespuestaJSONUserInfo [content=" + content + ", status="
-				+ status + "]";
+		return "RespuestaJSONUserInfo [status_code=" + status_code
+				+ ", session_token=" + session_token + "]";
 	}
 	
 	
 }
+

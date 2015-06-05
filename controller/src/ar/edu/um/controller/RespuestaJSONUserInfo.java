@@ -1,25 +1,24 @@
 package ar.edu.um.controller;
 
 public class RespuestaJSONUserInfo {
-	private ContentUserInfo status_code;
-	private String session_token;
-	
-	public ContentUserInfo getStatus_code() {
-		return status_code;
+	private ContentUserInfo content;
+	private String status;
+	public ContentUserInfo getContent() {
+		return content;
 	}
-	public void setStatus_code(ContentUserInfo status_code) {
-		this.status_code = status_code;
+	public void setContent(ContentUserInfo content) {
+		this.content = content;
 	}
-	public String getSession_token() {
-		return session_token;
+	public String getStatus() {
+		return status;
 	}
-	public void setSession_token(String session_token) {
-		this.session_token = session_token;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	@Override
 	public String toString() {
-		return "RespuestaJSONUserInfo [status_code=" + status_code
-				+ ", session_token=" + session_token + "]";
+		return "RespuestaJSONUserInfo [content=" + content + ", status="
+				+ status + "]";
 	}
 	
 	
