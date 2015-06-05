@@ -10,10 +10,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import ar.edu.um.model.Aluleg;
+import ar.edu.um.model.Content;
+import ar.edu.um.model.ContentUserInfo;
 import ar.edu.um.model.Credencial;
 import ar.edu.um.model.Domicilio;
 import ar.edu.um.model.Facultad;
 import ar.edu.um.model.Persona;
+import ar.edu.um.model.RespuestaJSON;
+import ar.edu.um.model.RespuestaJSONLogin;
+import ar.edu.um.model.RespuestaJSONUserInfo;
 import ar.edu.um.service.IAlulegService;
 import ar.edu.um.service.ICredencialService;
 import ar.edu.um.service.IDomicilioService;
@@ -71,7 +76,9 @@ public class PersonaController {
 	 **/
 	@RequestMapping(value = "/login/{login_id}/{password}", method = RequestMethod.GET)
 	public RespuestaJSONLogin login(@PathVariable("login_id") String login_id, @PathVariable("password") String password){
-		RespuestaJSONLogin respuesta = validarLogin(login_id, password);
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		IPersonaService perService = (IPersonaService) context.getBean("personaService");
+		RespuestaJSONLogin respuesta = perService.validarLogin(login_id, password);
 		
 		return respuesta;
 	}

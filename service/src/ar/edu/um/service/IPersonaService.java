@@ -3,7 +3,7 @@ package ar.edu.um.service;
 import java.math.BigDecimal;
 import java.util.List;
 
-import ar.edu.um.model.Persona;
+import ar.edu.um.model.*;
 
 public interface IPersonaService {
 
@@ -11,6 +11,6 @@ public interface IPersonaService {
 	List<Persona> list();
 	Persona findPersonaByClave(Integer clave);
 	Persona findPersonaByPerID(BigDecimal Per_ID);
-	RespuestaJSON (String login_id, String password);
+	RespuestaJSONLogin validarLogin(String login_id, String password);
 
 }
