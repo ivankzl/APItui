@@ -155,6 +155,16 @@ public class PersonaController {
 		
 	}
 	
+	/** 
+	 * Parámetros:
+	 * ▪ user_id (GET) Identificador del usuario para el acceso a servicios privados.
+	 * Url: https://<base_url>/get_tui_list/user_id
+	 * Devuelve: Json con los siguientes atributos:
+	 * ▪ status: <status code>
+	 * ▪ content: Json con los atributos: bookings.Bookings: tui_id, status, delivery_date, delivery place_coordinates, delivery_place_name, expiration_date
+	 * 
+	 **/
+	
 	@RequestMapping(value = "/get_tui_list/{cre_numero}", method = RequestMethod.GET)
 	public RespuestaJSONTuiList getTuiList(@PathVariable("cre_numero") BigDecimal cre_numero){
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
