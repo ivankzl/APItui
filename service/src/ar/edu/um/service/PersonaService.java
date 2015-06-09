@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.um.dao.PersonaDAO;
 import ar.edu.um.model.Persona;
-import ar.edu.um.model.RespuestaJSONLogin;
 
 @Service("personaService")
 public class PersonaService implements IPersonaService {
@@ -37,11 +36,11 @@ public class PersonaService implements IPersonaService {
 		return (Persona)personaDAO.findPersonaByPerID(Per_ID);
 	}
 
-	//@Override
-	//public RespuestaJSONLogin validarLogin(String login_id, String password) {
-		// TODO Auto-generated method stub
-	//	return null;
-	//}
+	@Transactional
+	public Persona validarLogin(BigDecimal Per_ID, String Per_Contrasenia) {
+		
+		return (Persona)personaDAO.validarLogin(Per_ID, Per_Contrasenia);
+	}
 
 
 }

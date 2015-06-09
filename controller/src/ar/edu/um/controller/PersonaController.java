@@ -18,6 +18,7 @@ import ar.edu.um.model.Domicilio;
 import ar.edu.um.model.Facultad;
 import ar.edu.um.model.Persona;
 import ar.edu.um.model.RespuestaJSON;
+import ar.edu.um.model.RespuestaJSONLogin;
 import ar.edu.um.model.RespuestaJSONTuiList;
 import ar.edu.um.model.RespuestaJSONUserInfo;
 import ar.edu.um.model.TuiList;
@@ -76,24 +77,34 @@ public class PersonaController {
 	 * ▪ session_token: Token de sesión para el acceso a los métodos privados
 	 * 
 	 **/
-//<<<<<<< HEAD
+
 	//@RequestMapping(value = "/login/{login_id}/{password}", method = RequestMethod.GET)
 	//public RespuestaJSONLogin login(@PathVariable("login_id") String login_id, @PathVariable("password") String password){
 	//	RespuestaJSONLogin respuesta;// = validarLogin(login_id, password);
 
 		//return respuesta;
 	//}
-//=======
-	/*
+	
 	@RequestMapping(value = "/login/{login_id}/{password}", method = RequestMethod.GET)
-	public RespuestaJSONLogin login(@PathVariable("login_id") String login_id, @PathVariable("password") String password){
+	public RespuestaJSONLogin login(@PathVariable("login_id") BigDecimal login_id, @PathVariable("password") String password){
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		IPersonaService perService = (IPersonaService) context.getBean("personaService");
-		RespuestaJSONLogin respuesta = perService.validarLogin(login_id, password);
+		
+		Persona persona = perService.validarLogin(login_id, password);
+		System.out.println(persona);
+		RespuestaJSONLogin respuesta = new RespuestaJSONLogin();
+		if (persona == null){
+			respuesta.setStatus_code("-1");
+		}else{
+
+			respuesta.setStatus_code("200");
+			respuesta.setSession_token("24e13898f82db340655c556306e611e54a046803");
+		}
+		
 		
 		return respuesta;
 	}
-	*/
+	
 //>>>>>>> 24e13898f82db340655c556306e611e54a046803
 	
 	
